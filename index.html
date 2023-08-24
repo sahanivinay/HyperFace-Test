@@ -5,73 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors Game</title>
     <h1>ROCK-PAPER-SCISSOR</h1>
-    <style>
-        /* CSS styles for the game */
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: rgb(232, 166, 87);
-        }
-
-        .game {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px auto;
-        }
-
-        .player {
-            border: 2px solid #333;
-            padding: 10px;
-            border-radius: 5px;
-            background-color: rgb(48, 7, 10);
-            color: white;
-        }
-
-        .choices {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            
-        }
-
-        button {
-            padding: 5px 10px;
-            cursor: pointer;
-            background-color: pink;
-        }
-        button:hover {
-        background-color: rgb(245, 14, 41);
-    }
-
-        .result {
-            margin-top: 20px;
-        }
-
-        .scoreboard {
-            background-color: #f7da5a;
-            border: 2px solid #333;
-            border-radius: 5px;
-            padding: 10px;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .scoreboard h2 {
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .scoreboard p {
-            margin: 5px 0;
-            font-size: 18px;
-        }
-
-        .scoreboard span {
-            font-weight: bold;
-            font-size: 20px;
-            color: #007bff; 
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <div class="game">
@@ -101,45 +35,6 @@
         <p>Player 1: <span id="player1-score">0</span></p>
         <p>Player 2: <span id="player2-score">0</span></p>
     </div>
-    <script>
-        let player1Choice = '';
-        let player2Choice = '';
-        let player1Score = 0;
-        let player2Score = 0;
-
-        function makeChoice(choice, player) {
-            if (player === 1) {
-                player1Choice = choice;
-            } else if (player === 2) {
-                player2Choice = choice;
-            }
-
-            if (player1Choice && player2Choice) {
-                determineWinner();
-            }
-        }
-
-        function determineWinner() {
-            if (player1Choice === player2Choice) {
-                displayResult("It's a draw!");
-            } else if (
-                (player1Choice === 'rock' && player2Choice === 'scissors') ||
-                (player1Choice === 'paper' && player2Choice === 'rock') ||
-                (player1Choice === 'scissors' && player2Choice === 'paper')
-            ) {
-                player1Score++;
-                displayResult('Player 1 wins!');
-            } else {
-                player2Score++;
-                displayResult('Player 2 wins!');
-            }
-            document.getElementById('player1-score').textContent = player1Score;
-            document.getElementById('player2-score').textContent = player2Score;
-        }
-
-        function displayResult(message) {
-            document.getElementById('result-text').textContent = message;
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
